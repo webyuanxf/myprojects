@@ -1,0 +1,14 @@
+创建数据库：crm
+创建表users(uid,uname,upwd,headpic(头像),regtime,logincount(登录次数))
+1:add.html
+根据用户提交的用户名，密码，头像向数据库添加数据，添加成功，显示"注册成功"，否则显示"注册失败"(如果用户名已被注册显示"该用户已被注册")
+2:编写users_login.php
+根据用户提交的用户名和密码名进行判断，如果数据库中有用户提交的用户名和密码名，则登录成功,登录次数+1，否则，提示用户名或密码错误
+3:编写users_select.php
+查询user表中的所有的记录，在查询的记录中，将uname,upwd,headpi,regtime以：
+    用户名：xxx
+    密码：xxx的形式输出
+4:编写users_del.php
+根据用户传入的用户id删除对应的记录
+5：编写update_upwd.php
+接收客户端提交的用户uid、oldpwd和newpwd， 根据uid和oldpwd先SELECT该记录是否存在，若不存在则向客户端输出"原始密码错误"；否则执行UPDATE，把该用户的密码修改为newpwd，返回"update succ"。

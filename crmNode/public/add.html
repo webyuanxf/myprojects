@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>用户添加</h1>
+    <!--<form method="POST" action="/user/add">-->
+    <form action="">
+        用户名：<input type="text" name="uname" id="uname"><br>
+        密码：<input type="text" name="upwd" id="upwd"><br>
+        头像：<input type="text" name="upic" id="pic"><br>
+        <!--<input type="submit">-->
+        <input type="button" value="提交" onclick="add()">
+    </form>
+
+    <script>
+        function add(){
+            console.log(uname.value);
+            var xhr=new XMLHttpRequest();
+            xhr.onreadystatechange=function(){
+                if(xhr.readyState==4&&xhr.status==200){
+                    var data=xhr.responseText;
+                    console.log(data);
+                }
+            }
+            xhr.open("post","/user/add",true);
+            xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            console.log(uname.value);
+            var u=uname.value;
+            var p=upwd.value;
+            var c=pic.value;
+            var msg=`uname=${u}&upwd=${p}&upic=${c}`;
+            xhr.send(msg)
+        }
+    </script>
+</body>
+</html>
